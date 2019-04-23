@@ -1,4 +1,6 @@
 from collections import defaultdict
+import pickle
+
 class SearchTwitter:
   
   def __init__(self, api, query, lang, cnt):
@@ -41,6 +43,21 @@ class SearchTwitter:
         flatten_tweet[attr].append(tweet_json[attr])
         
     return flatten_tweet
+  
+  @staticmethod
+  def save_twitters(tweets, file_name):
+    
+    with open(file_name, "wb") as handle:
+      pickle.dump(tweets, handle)
+  
+  @staticmethod
+  def load_twitters(file_name):
+    
+    with open(file_name, "rb") as handle:
+      tweets = pickle.load(handle)
+    return tweets
+    
+    
         
       
     

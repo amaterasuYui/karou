@@ -9,21 +9,29 @@ from inspect import getsource
 proxy = "https://sjd-entbc-001:80"
 twi = TweetAPI(proxy = proxy)
 api = twi.get_api()
-ontime = SearchTwitter(api, "#わたし定時で帰ります", "ja", 200)
-ontime_tweets = ontime.get_all_tweets(900)
-
-user_info = ["id", "screen_name", "description"]
-
+ontime = SearchTwitter(api, "#わたし定時で帰ります", "ja", 100)
+ontime_tweets = ontime.get_all_tweets(1000)
+user_info = \
+["id", 
+"screen_name", 
+"description", 
+"location", 
+"friends_count",
+"followers_count"]
 flatten_ontime = SearchTwitter.flatten_tweets(ontime_tweets,
-                                         user_info,
-                                         "id",
-                                         "created_at",
-                                         "text",
-                                         "favorite_count")
+                                              user_info,
+                                              "id",
+                                              "created_at",
+                                              "text",
+                                              "favorite_count")
+# save twits to pickle
+SearchTwitter.save_twitters(flatten_ontime, "data/teiji_twi.pickle")
+# save twits to csv
 ontime_df = pd.DataFrame(flatten_ontime)
 ontime_df = ontime_df.assign(
   if_rt = np.where(ontime_df["text"].str.contains("RT @"),
   True, False))
+
 ontime_df.to_csv("data/teiji.csv")
 
   
