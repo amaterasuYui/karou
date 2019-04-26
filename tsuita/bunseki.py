@@ -78,14 +78,20 @@ class JaToken:
     
     return [sum(scores) for scores in self.score_set]
   
-  def non_trivial_word(self, stop_words):
+  def non_trivial_word(self, stop_words, filter_length = 10):
     
     word_list = []
+    index_list = []
     
-    for sentence in self.tokens:
-      words = [token.base_form for token in sentence if token.base_form not in stop_words]
-      word_list.append(words)
-    return word_list
+    for index, sentence in enumerate(self.tokens):
+      words = [token.base_form for token in sentence 
+                      if token.base_form not in stop_words
+                        and len(token.base_form) > 1
+                        and not token.base_form.isdigit()]
+      if len(words) >= filter_length and words not in word_list:
+        word_list.append(words)
+        index_list.append(index)
+    return index_list, word_list
 
     
     
