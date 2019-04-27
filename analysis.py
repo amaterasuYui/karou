@@ -6,7 +6,6 @@ import many_stop_words
 from tsuita.twidata import SearchTwitter
 from tsuita.bunseki import JaToken
 
-
 flatten_ontime = SearchTwitter.load_twitters("data/teiji_twi_2.pickle")
 # save twits to csv
 ontime_df = pd.DataFrame(flatten_ontime)
