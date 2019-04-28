@@ -63,3 +63,6 @@ save_to_text("data/words_comments_top_10.txt",
 *list(map(lambda x: x[2] + "\n\r", ontime_list[:10]))
 )
 
+save_to_text("data/best_comments_top_10.txt",
+*list(map(lambda x: x[2] + "\n\r", ontime_list[-1:-10:-1])))
+
