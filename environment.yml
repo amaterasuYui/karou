@@ -1,8 +1,8 @@
 name: py36
 channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2
   - conda-forge
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
@@ -21,6 +21,7 @@ dependencies:
   - h5py=2.9.0=py36h5e291fa_0
   - hdf5=1.10.4=h7ebc959_0
   - icc_rt=2019.0.0=h0cc432a_1
+  - icu=58.2=ha66f8fd_1
   - intel-openmp=2019.1=144
   - keras=2.2.4=0
   - keras-applications=1.0.6=py36_0
@@ -35,9 +36,11 @@ dependencies:
   - numpy-base=1.15.4=py36hc3f5095_0
   - pip=18.1=py36_0
   - protobuf=3.6.1=py36h33f27b4_0
+  - pyqt=5.9.2=py36h6538335_2
   - pyreadline=2.1=py36_1
   - python=3.6.8=h9f7ef89_0
   - pyyaml=3.13=py36hfa6e2cd_0
+  - qt=5.9.7=vc14h73c81de_0
   - scipy=1.2.0=py36h29ff71c_0
   - setuptools=40.6.3=py36_0
   - six=1.12.0=py36_0
@@ -61,15 +64,25 @@ dependencies:
   - backcall=0.1.0=py_0
   - bleach=3.1.0=py_0
   - blinker=1.4=py_1
+  - boto=2.49.0=py_0
+  - boto3=1.9.130=py_0
+  - botocore=1.12.130=py_0
+  - bz2file=0.98=py_0
   - ca-certificates=2019.3.9=hecc5488_0
   - certifi=2019.3.9=py36_0
   - cffi=1.12.2=py36hb32ad35_1
   - chardet=3.0.4=py36_1003
   - colorama=0.4.1=py_0
   - cryptography=2.6.1=py36hb32ad35_0
+  - cycler=0.10.0=py_1
   - decorator=4.3.2=py_0
+  - docutils=0.14=py36_1001
   - entrypoints=0.3=py36_1000
   - et_xmlfile=1.0.1=py36_1000
+  - freetype=2.10.0=h5db478b_0
+  - funcy=1.11=py_0
+  - future=0.17.1=py36_1000
+  - gensim=3.5.0=py36h830ac7b_1000
   - idna=2.8=py36_1000
   - ipykernel=5.1.0=py36h39e3cac_1002
   - ipython=7.3.0=py36h39e3cac_0
@@ -77,12 +90,20 @@ dependencies:
   - jdcal=1.4=py_1
   - jedi=0.13.2=py36_1000
   - jinja2=2.10=py_1
+  - jmespath=0.9.4=py_0
+  - joblib=0.13.2=py_0
+  - jpeg=9c=hfa6e2cd_1001
   - jsonschema=3.0.0a3=py36_1000
   - jupyter_client=5.2.4=py_1
   - jupyter_core=4.4.0=py_0
+  - kiwisolver=1.0.1=py36he980bc4_1002
+  - libpng=1.6.36=h7602738_1000
   - libsodium=1.0.16=h2fa13f4_1001
+  - libtiff=4.0.10=h36446d0_1001
   - linecache2=1.0.0=py_1
   - markupsafe=1.1.0=py36hfa6e2cd_1000
+  - matplotlib=3.0.3=py36_0
+  - matplotlib-base=3.0.3=py36h3e3dc42_0
   - mistune=0.8.4=py36hfa6e2cd_1000
   - more-itertools=4.3.0=py36_1000
   - nb_conda=2.2.1=py36_0
@@ -90,7 +111,9 @@ dependencies:
   - nbconvert=5.3.1=py_1
   - nbformat=4.4.0=py_1
   - notebook=5.7.4=py36_1000
+  - numexpr=2.6.9=py36h6538335_1000
   - oauthlib=3.0.1=py_0
+  - olefile=0.46=py_0
   - openpyxl=2.6.1=py_0
   - openssl=1.1.1b=hfa6e2cd_2
   - pandas=0.24.1=py36h6538335_0
@@ -98,6 +121,7 @@ dependencies:
   - pandocfilters=1.4.2=py_1
   - parso=0.3.4=py_0
   - pickleshare=0.7.5=py36_1000
+  - pillow=6.0.0=py36h9a613e6_0
   - pluggy=0.9.0=py_0
   - prometheus_client=0.6.0=py_0
   - prompt_toolkit=2.0.9=py_0
@@ -105,8 +129,10 @@ dependencies:
   - pycparser=2.19=py36_1
   - pygments=2.3.1=py_0
   - pyjwt=1.7.1=py_0
+  - pyldavis=2.1.2=py_0
   - pyodbc=4.0.26=py36h6538335_0
   - pyopenssl=19.0.0=py36_0
+  - pyparsing=2.4.0=py_0
   - pyrsistent=0.14.10=py36hfa6e2cd_0
   - pysocks=1.6.8=py36_1002
   - pytest=4.3.0=py36_0
@@ -118,10 +144,14 @@ dependencies:
   - pyzmq=18.0.0=py36hf576995_0
   - requests=2.21.0=py36_1000
   - requests-oauthlib=1.2.0=py_0
+  - s3transfer=0.2.0=py36_0
   - send2trash=1.5.0=py_0
+  - sip=4.19.8=py36h6538335_1000
+  - smart_open=1.8.1=py_0
   - sqlalchemy=1.2.18=py36hfa6e2cd_0
   - terminado=0.8.1=py36_1001
   - testpath=0.4.2=py36_1000
+  - tk=8.6.9=hfa6e2cd_1001
   - tornado=5.1.1=py36hfa6e2cd_1000
   - traitlets=4.3.2=py36_1000
   - tweepy=3.6.0=py36_0
@@ -130,6 +160,7 @@ dependencies:
   - webencodings=0.5.1=py_1
   - win_inet_pton=1.1.0=py36_0
   - winpty=0.4.3=4
+  - wordcloud=1.5.0=py36hfa6e2cd_1000
   - zeromq=4.2.5=he025d50_1006
   - m2w64-gcc-libgfortran=5.3.0=6
   - m2w64-gcc-libs=5.3.0=7
@@ -139,8 +170,14 @@ dependencies:
   - msys2-conda-epoch=20160418=1
   - pandasql=0.7.3=py36_0
   - pip:
+    - bcrypt==3.1.6
     - beautifulsoup4==4.6.0
     - bs4==0.0.1
+    - janome==0.3.8
+    - many-stop-words==0.2.2
+    - paramiko==2.4.2
+    - pyasn1==0.4.5
+    - pynacl==1.3.0
     - pyscoring==0.1
 prefix: C:\Users\wzhuge\AppData\Local\Continuum\anaconda3\envs\py36
 
