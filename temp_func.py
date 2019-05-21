@@ -18,4 +18,16 @@ def save_to_text(file, *args):
       print(string)
       handle.write(string + "\n")
 
+def word_by_pos(token, stopwords, pos, filtered_length = 10, most_common_show = 10):
+  import itertools
+  from collections import Counter
+  index, words = token.non_trivial_word(stopwords, filtered_length, pos)
+  all_words = list(itertools.chain.from_iterable(words))
+  all_words_cnt = Counter(all_words)
+  
+  print(all_words_cnt.most_common(most_common_show))
+  
+  return index, words, all_words, all_words_cnt
+  
+
   

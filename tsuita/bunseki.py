@@ -78,7 +78,7 @@ class JaToken:
     
     return [sum(scores) for scores in self.score_set]
   
-  def non_trivial_word(self, stop_words, filter_length = 10):
+  def non_trivial_word(self, stop_words, filter_length = 10, pos = ""):
     
     word_list = []
     index_list = []
@@ -87,7 +87,9 @@ class JaToken:
       words = [token.base_form for token in sentence 
                       if token.base_form not in stop_words
                         and len(token.base_form) > 1
-                        and not token.base_form.isdigit()]
+                        and not token.base_form.isdigit()
+                        and pos in token.part_of_speech]
+          
       if len(words) >= filter_length and words not in word_list:
         word_list.append(words)
         index_list.append(index)
