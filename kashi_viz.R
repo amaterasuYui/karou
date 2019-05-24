@@ -8,6 +8,7 @@ aimer_cnt_tb <- fread("data/aimer_cnt.csv", encoding = "UTF-8") %>%
   .[, V1 := NULL]
 aimer_cnt_tb <- aimer_cnt_tb[, pos := ifelse(word %in% c("read", "feel"), "verb", pos)] %>% 
   .[, pos := ifelse(word %in% c("crazy"), "adj", pos)]
+
 # noun
 aimer_noun <- aimer_cnt_tb[pos == "noun"] %>% head(20)
 
@@ -25,6 +26,19 @@ high_bar_chart(
   aimer_noun$word,
   aimer_noun$cnt,
   "Aimer Top 20 名詞",
+  "",
+  "",
+  "Count",
+  inverted = T,
+  thm
+)
+
+# adj 
+aimer_adj <- aimer_cnt_tb[pos == "adj"] %>% setorder(-cnt) %>% head(20)
+high_bar_chart(
+  aimer_adj$word,
+  aimer_adj$cnt,
+  "Aimer Top 20 形容詞",
   "",
   "",
   "Count",
