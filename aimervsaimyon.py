@@ -56,4 +56,28 @@ aimerW_big_tb = pd.concat([aimerW[0].assign(pos = "noun"),
                            aimerW[2].assign(pos = "adj")])
 aimerW_big_tb.to_csv("data/aimer_cnt.csv", encoding = "utf-8")
 
+# word distribution analysis
+aimer = pickle.load(open("data/aimer.pickle", "rb"))
+aimer_all = pickle.load(open("data/aimer_viz.pickle", "rb"))[1]
+song = [song_set[3] for song_set in aimer.song_pack]
+noun_top = pd.read_csv("data/aimer_noun_20.csv")
+noun_top_substr = noun_top.word.tolist()
+noun_word_occur_by_song = all_substr_occurence_by_base(aimer_all[1], noun_top_substr)
+word_distr = word_distr_by_song(noun_word_occur_by_song)
+word_distr.sort(key = lambda x:x[1], reverse = True)
+noun_word_occur_by_song = append_song_name(noun_word_occur_by_song, 
+list(map(lambda x: x[0], aimer.song_pack)),
+list(map(lambda x: x[3], aimer.song_pack)))
+
+# by adj
+adj_top = pd.read_csv("data/aimer_adj_20.csv")
+adj_top_substr = adj_top.word.tolist()
+adj_word_occur_by_song = all_substr_occurence_by_base(aimer_all[1], adj_top_substr)
+adj_word_distr = word_distr_by_song(adj_word_occur_by_song)
+adj_word_distr.sort(key = lambda x:x[1], reverse = True)
+adj_word_occur_by_song = append_song_name(adj_word_occur_by_song, 
+list(map(lambda x: x[0], aimer.song_pack)),
+list(map(lambda x: x[3], aimer.song_pack)))
+
+
 

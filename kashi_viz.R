@@ -17,13 +17,38 @@ thm <- hc_theme_merge(
   hc_theme(
     chart = list(
       backgroundColor = "transparent",
-      divBackgroundImage = "https://3.bp.blogspot.com/-XLimq4u5_HQ/XA3NOhRwfoI/AAAAAAAAIqQ/heW7g_pYYxw31kPW_HDtOv7lO2VYOzx7ACEwYBhgL/s1600/Aimer_-_I-beg-you_-_Hanabiratachi-no-March_-_Sailing.jpg"
+      divBackgroundImage = "http://st.cdjapan.co.jp/pictures/l/05/22/SECL-2421.jpg?v=1"
     )
   )
 )
 
+# word translation
+noun_chinese <- 
+  c(
+    "爱",
+    "言语",
+    "世界",
+    "脸颊",
+    "愿望",
+    "回想",
+    "宝贝",
+    "季节",
+    "心",
+    "身旁",
+    "记忆",
+    "没关系",
+    "远处",
+    "回忆",
+    "一体",
+    "现在",
+    "意思",
+    "不安",
+    "喜欢",
+    "日子"
+  )
+
 high_bar_chart(
-  aimer_noun$word,
+  paste0(aimer_noun$word, "（", noun_chinese, "）"),
   aimer_noun$cnt,
   "Aimer Top 20 名詞",
   "",
@@ -35,8 +60,31 @@ high_bar_chart(
 
 # adj 
 aimer_adj <- aimer_cnt_tb[pos == "adj"] %>% setorder(-cnt) %>% head(20)
+adj_chinese <-
+  c(
+    "坚强",
+    "怜爱",
+    "温柔",
+    "疯狂",
+    "悲伤",
+    "遥远",
+    "寂寞",
+    "脆弱",
+    "白色",
+    "怀恋",
+    "冰冷",
+    "蓝色",
+    "幼小",
+    "红色",
+    "深",
+    "虚幻",
+    "甜蜜",
+    "美丽",
+    "苦闷",
+    "怀念"
+  )
 high_bar_chart(
-  aimer_adj$word,
+  paste0(aimer_adj$word, "（", adj_chinese, "）"),
   aimer_adj$cnt,
   "Aimer Top 20 形容詞",
   "",

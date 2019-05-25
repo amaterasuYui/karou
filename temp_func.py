@@ -28,6 +28,26 @@ def word_by_pos(token, stopwords, pos, filtered_length = 10, most_common_show = 
   print(all_words_cnt.most_common(most_common_show))
   
   return index, words, all_words, all_words_cnt
-  
 
+def substr_occurence(text_set, substr):
+  return [text.lower().count(substr.lower()) for text in text_set]
+
+def all_substr_occurence(text_set, substr_set):
+  return {substr:substr_occurence(text_set, substr) for substr in substr_set}
+
+def all_substr_occurence_by_base(base_set, substr_set):
+  from collections import Counter
+  def substr_occurence(base_set, substr):
+    base_set = [list(map(lambda x: x.lower(), base)) for base in base_set]
+    substr = substr.lower()
+    return [Counter(base_text).get(substr) if substr in Counter(base_text) else int(0) in Counter(base_text) for base_text in base_set]
+  return {substr:substr_occurence(base_set, substr) for substr in substr_set}
+
+
+def word_distr_by_song(noun_occurence):
+  import numpy as np
+  return [(key, (np.array(item) != 0).sum()) for key, item in noun_occurence.items()]
+
+def append_song_name(noun_occurence, song_name, song):
+  return { key:sorted(list(zip(item, song_name, song)), key = lambda x:x[0], reverse = True) for key, item in noun_occurence.items()}
   
